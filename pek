@@ -1,0 +1,69 @@
+// ConsoleApplication1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include <iostream>
+#include<ctime>
+#include <string>
+using namespace std;
+
+int generate_int(int lvl) {
+	srand(time(NULL));
+	int integer = 1;
+	if (lvl == 1){
+		integer = rand() % 100;
+	}
+	else if (lvl == 2) {
+		integer = rand() % 1000;
+	}
+	else {
+		integer = rand() % 5000;
+	}
+	
+	return integer;
+}
+
+
+int level(int integer) {
+	
+	int answer;
+	cin >> answer;
+	if (answer != integer) {
+		if (answer > integer) {
+			cout << "\nYour number more than mine\n";
+		}
+		else {
+			cout << "\nYour number less than mine\n";
+		}
+		cout <<"\n" <<integer << "\n";
+		return 1;
+	}
+	else {
+		cout << "You win! " << integer << " is answer";
+		return 0;
+	}
+	
+	
+}
+
+int main()
+{	
+	cout << "Choose lvl! \n Llv 1 - number from 1 to 100 \n Lvl 2 - number from 1 to 1000 \n Lvl 3 - number from 1 to 5000 \n";
+	int lvl;
+	cin >> lvl;
+
+	int integer = generate_int(lvl);
+	if (lvl == 1) {
+		cout << "Try to guess what number is (from 1 to 100) \n";
+	}
+	else if (lvl == 1) {
+		cout << "Try to guess what number is (from 1 to 1000) \n";
+	}
+	else {
+		cout << "Try to guess what number is (from 1 to 5000) \n";
+	}
+	
+	while ( level(integer) ) {
+		
+	}	
+
+}
